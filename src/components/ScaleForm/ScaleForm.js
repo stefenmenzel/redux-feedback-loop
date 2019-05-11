@@ -5,7 +5,7 @@ class ScaleForm extends Component{
 
     //store value until we hit the next button
     state ={
-        formValue: 0
+        formValue: 1
     }
 
     //update local component state
@@ -28,7 +28,7 @@ class ScaleForm extends Component{
                 <form onSubmit={this.handleSubmit}>
                     <h2>{this.props.formType.header}</h2>
                     <label htmlFor={this.props.formType.label}>{this.props.formType.label}?</label>
-                    <select onChange={this.handleChange} id={this.props.formType.label} name={this.props.formType.label}>
+                    <select value={this.state.formValue} onChange={this.handleChange} id={this.props.formType.label} name={this.props.formType.label}>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

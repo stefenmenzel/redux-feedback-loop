@@ -1,56 +1,82 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import axios from 'axios';
+
+import FeedbackReview from '../Review/FeedbackReview.js';
+import Thanks from '../Thanks/Thanks.js';
 
 class Review extends Component{
     
     state = {
-        feelings: 0,
-        understanding: 0,
-        support: 0,
-        comment: ''
+        isSubmitted: false
     }
 
-    fetchProps = () => {
+    // isCompleteButton = () => {        
+    //     let feelings = this.props.reduxState.feeling.value;
+    //     let understanding = this.props.reduxState.understanding.value;
+    //     let support = this.props.reduxState.support.value;
+    //     let comment = this.props.reduxState.comment.newComment;
+        
+    //     if (feelings && understanding && support && comment) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
+
+    // conditionalButton(isComplete){                       
+    //     return ((this.isCompleteButton()) ? 
+    //         <button onClick={() => this.submitFeedback()}>SUBMIT</button> :
+    //         <button disabled>INCOMPLETE</button>)
+            
+    // }
+
+    // submitFeedback = () => {
+    //     console.log('testing submit feedback');
+    //     let objectToSend = {
+    //         feeling: this.props.reduxState.feeling.value,
+    //         understanding: this.props.reduxState.understanding.value,
+    //         support: this.props.reduxState.support.value,
+    //         comments: this.props.reduxState.comment.newComment
+    //     }
+    //     this.sendDataToServer(objectToSend);
+    //     this.setState({
+    //         isSubmitted: true
+    //     })
+    //     console.log('************current feedbackReview state:*****************', this.state);
+    // }
+
+    // sendDataToServer = (objectToSend) => {
+    //     axios.post('/feedback', objectToSend)
+    //     .then((response) => {
+    //         console.log('response from POST request:', response);
+    //     }).catch((error) => {
+    //         console.log('error in POST request:', error);
+    //     })
+    // }
+
+    toggleSubmitted = () => {
         this.setState({
-            ...this.state,
-            feelings: this.props.reduxState.feeling.value,
-            understanding: this.props.reduxState.understanding,
-            support: this.props.reduxState.support.value,
-            comment: this.props.reduxState.comment.newComment
+            isSubmitted: !this.state.isSubmitted
         })
     }
 
-    isCompleteButton = () => {
-        this.fetchProps();
-        if(this.state.feelings){
-            console.log('feelings:', this.state.feelings);
-            return false;
-        }
-        if (this.state.feelings && this.state.understanding && this.state.support && this.state.comment) {
-            return true;
-        }
-        return false;
-    }
-
-    conditionalButton(isComplete){               
-        if(!isComplete){
-            return <button disabled>INCOMPLETE</button>;
-        }
-        else{
-            return <button onClick={() => this.submitFeedback}>SUBMIT</button>;
-        }
-    }
-
     render(){        
+        // this.isCompleteButton();
         return(
-            <div>
-                <h2>Review Your Feedback</h2>
-                <br />
-                <p>{`Feelings: ${this.props.reduxState.feeling.value}`}</p>
-                <p>{`Understanding: ${this.props.reduxState.understanding.value}`}</p>
-                <p>{`Support: ${this.props.reduxState.support.value}`}</p>
-                <p>{`Comments: ${this.props.reduxState.comment.newComment}`}</p>                
+            <div>                
+                {(!this.state.isSubmitted) ?
+                <FeedbackReview  submit={this.toggleSubmitted}/> :
+                <Thanks />}
             </div>
+            // <div>
+            //     <h2>Review Your Feedback</h2>
+            //     <br />
+            //     <p>{`Feelings: ${this.props.reduxState.feeling.value}`}</p>
+            //     <p>{`Understanding: ${this.props.reduxState.understanding.value}`}</p>
+            //     <p>{`Support: ${this.props.reduxState.support.value}`}</p>
+            //     <p>{`Comments: ${this.props.reduxState.comment.newComment}`}</p> 
+            //     <div>{this.conditionalButton()}</div>               
+            // </div>
         )
     }
 }
