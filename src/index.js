@@ -33,21 +33,28 @@ const supportInfo = {
 
 const feeling = (state = feelingInfo, action) => {
     if(action.type === "SET_FEELING"){
-        return action.payload.formValue;
+        return {...state, value: action.payload.formValue};
     }
     return state;
 }
 
 const understanding = (state = understandingInfo, action) => {
     if(action.type === 'SET_UNDERSTANDING'){
-        return action.payload.formValue;
+        return { ...state, value: action.payload.formValue };
     }
     return state;
 }
 
 const support = (state = supportInfo, action) => {
     if(action.type === 'SET_SUPPORT'){
-        return action.payload.formValue;
+        return { ...state, value: action.payload.formValue };
+    }
+    return state;
+}
+
+const comment = (state = {newComment: ''}, action) => { 
+    if(action.type === 'SET_COMMENT'){
+        return {newComment: action.payload.newComment};
     }
     return state;
 }
@@ -56,7 +63,8 @@ const storeInstance = createStore (
     combineReducers({
         feeling,
         understanding,
-        support
+        support,
+        comment
     }),
     applyMiddleware(logger)
 )

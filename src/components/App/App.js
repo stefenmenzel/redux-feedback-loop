@@ -4,7 +4,10 @@ import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
 
-import ScaleForm from '../ScaleForm/ScaleForm';
+//my components
+import ScaleForm from '../ScaleForm/ScaleForm.js';
+import Comments from '../Comments/Comments.js';
+import Review from '../Review/Review.js';
 
 class App extends Component {
   render() {
@@ -15,8 +18,7 @@ class App extends Component {
             <h1 className="App-title">Feedback!</h1>
             <h4><i>Don't forget it!</i></h4>
           </header>
-          <br />
-          {/* <FeelingForm /> */}
+          <br />          
           <Route exact path='/'
             render={props => (<ScaleForm formType={this.props.reduxState.feeling} passedProps={props} />)}
           />
@@ -26,6 +28,10 @@ class App extends Component {
           <Route exact path='/support'
             render={props => (<ScaleForm formType={this.props.reduxState.support} passedProps={props} />)}
           />
+          <Route exact path='/comment'
+            component={Comments}
+          />
+          <Review />
         </div>
       </Router>
     );
