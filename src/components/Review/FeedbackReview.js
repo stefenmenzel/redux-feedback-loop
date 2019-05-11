@@ -4,6 +4,7 @@ import axios from 'axios';
 
 class FeedbackReview extends Component {
 
+    // Check if the form has been completed 
     isCompleteButton = () => {
         let feelings = this.props.reduxState.feeling.value;
         let understanding = this.props.reduxState.understanding.value;
@@ -16,6 +17,7 @@ class FeedbackReview extends Component {
         return false;
     }
 
+    //alter the button based on whether or not the form has been completed
     conditionalButton() {
         return ((this.isCompleteButton()) ?
             <button onClick={() => this.submitFeedback()}>SUBMIT</button> :
@@ -23,6 +25,7 @@ class FeedbackReview extends Component {
 
     }
 
+    //submit feedback to the server, toggle review page.
     submitFeedback = () => {
         console.log('testing submit feedback');
         let objectToSend = {
@@ -36,6 +39,7 @@ class FeedbackReview extends Component {
         console.log('exiting submit')
     }
 
+    //the nitty gritty of actually sending data to the server
     sendDataToServer = (objectToSend) => {
         axios.post('/feedback', objectToSend)
             .then((response) => {
@@ -45,8 +49,7 @@ class FeedbackReview extends Component {
             })
     }
 
-    render() {
-        // this.isCompleteButton();
+    render() {        
         return (
             <div>
                 <h2>Review Your Feedback</h2>

@@ -18,6 +18,10 @@ class Comments extends Component{
     //submit comment and send to redux state via dispatching action.
     handleSubmit = (event) => {
         event.preventDefault();
+        if(this.state.newComment === ''){
+            alert('Please add a comment');
+            return;
+        }
         this.props.dispatch({type: 'SET_COMMENT', payload: this.state})
         this.props.history.push('/review');
     }

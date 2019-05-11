@@ -7,6 +7,7 @@ import {createStore, combineReducers, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import logger from 'redux-logger';
 
+//*********Starter info for reducers, passed to generic form*************************/
 const feelingInfo = {
     header: 'How are you feeling today?',
     label: 'Feeling',
@@ -30,7 +31,10 @@ const supportInfo = {
     type: 'SET_SUPPORT',
     nextPage: '/comment'
 }
+/***********************************************************/
 
+
+//Reducers to store different pages information
 const feeling = (state = feelingInfo, action) => {
     if(action.type === "SET_FEELING"){
         return {...state, value: action.payload.formValue};
@@ -70,7 +74,9 @@ const comment = (state = {newComment: ''}, action) => { 
     }
     return state;
 }
+//END REDUCERS
 
+//Stash reducers in the store
 const storeInstance = createStore (
     combineReducers({
         feeling,

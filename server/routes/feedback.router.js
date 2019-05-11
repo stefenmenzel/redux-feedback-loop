@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
-router.post('/', (req, res) => {
-    console.log('MADE IT TO THE ROUTER');
+router.post('/', (req, res) => {    
     let feedbackToSend = req.body;
     let sqlQuery = `
         INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
