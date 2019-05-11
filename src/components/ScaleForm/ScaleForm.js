@@ -3,16 +3,19 @@ import {connect} from 'react-redux';
 
 class ScaleForm extends Component{
 
+    //store value until we hit the next button
     state ={
         formValue: 0
     }
 
+    //update local component state
     handleChange = (event) => {
         this.setState({
             formValue: event.target.value
         })
     }
 
+    //send state to redux through action dispatch.
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.dispatch({type:this.props.formType.type, payload: this.state })
@@ -24,7 +27,7 @@ class ScaleForm extends Component{
             <div>
                 <form onSubmit={this.handleSubmit}>
                     <h2>{this.props.formType.header}</h2>
-                    <label for={this.props.formType.label}>{this.props.formType.label}?</label>
+                    <label htmlFor={this.props.formType.label}>{this.props.formType.label}?</label>
                     <select onChange={this.handleChange} id={this.props.formType.label} name={this.props.formType.label}>
                         <option value="1">1</option>
                         <option value="2">2</option>
