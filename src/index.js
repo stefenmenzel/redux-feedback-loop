@@ -35,12 +35,18 @@ const feeling = (state = feelingInfo, action) => {
     if(action.type === "SET_FEELING"){
         return {...state, value: action.payload.formValue};
     }
+    else if(action.type === "RESET_STATE"){
+        return feelingInfo
+    }
     return state;
 }
 
 const understanding = (state = understandingInfo, action) => {
     if(action.type === 'SET_UNDERSTANDING'){
         return { ...state, value: action.payload.formValue };
+    }
+    else if (action.type === "RESET_STATE") {
+        return understandingInfo
     }
     return state;
 }
@@ -49,12 +55,18 @@ const support = (state = supportInfo, action) => {
     if(action.type === 'SET_SUPPORT'){
         return { ...state, value: action.payload.formValue };
     }
+    else if (action.type === "RESET_STATE") {
+        return supportInfo
+    }
     return state;
 }
 
 const comment = (state = {newComment: ''}, action) => { 
     if(action.type === 'SET_COMMENT'){
         return {newComment: action.payload.newComment};
+    }
+    else if (action.type === "RESET_STATE") {
+        return {newComment: ''}
     }
     return state;
 }

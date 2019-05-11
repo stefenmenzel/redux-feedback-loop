@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
+// import {withRouter} from 'react-router-dom';
 
 import FeedbackReview from '../Review/FeedbackReview.js';
 import Thanks from '../Thanks/Thanks.js';
@@ -66,7 +67,7 @@ class Review extends Component{
             <div>                
                 {(!this.state.isSubmitted) ?
                 <FeedbackReview  submit={this.toggleSubmitted}/> :
-                <Thanks />}
+                <Thanks submit={this.toggleSubmitted}/>}
             </div>
             // <div>
             //     <h2>Review Your Feedback</h2>
