@@ -74,6 +74,13 @@ const comment = (state = {newComment: ''}, action) => { 
     }
     return state;
 }
+
+const submitted = (state = {isSubmitted: false}, action) => {
+    if(action.type === 'SUBMIT_FEEDBACK'){
+        return {isSubmitted: !state.isSubmitted};
+    }
+    return state;
+}
 //END REDUCERS
 
 //Stash reducers in the store
@@ -82,7 +89,8 @@ const storeInstance = createStore (
         feeling,
         understanding,
         support,
-        comment
+        comment,
+        submitted
     }),
     applyMiddleware(logger)
 )
