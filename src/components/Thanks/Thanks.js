@@ -6,6 +6,7 @@ class Thanks extends Component {
 
     setupNewFeedback = () => {
         this.props.dispatch({type: 'RESET_STATE'});
+        this.props.dispatch({ type: 'SUBMIT_FEEDBACK' });
         this.props.submit();
         this.props.history.push('/');
     }
