@@ -36,6 +36,7 @@ class FeedbackReview extends Component {
         }
         this.sendDataToServer(objectToSend);
         this.props.submit();
+        this.props.dispatch({type: 'SUBMIT_FEEDBACK'});
         console.log('exiting submit')
     }
 

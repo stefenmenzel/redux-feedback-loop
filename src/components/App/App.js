@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import './App.css';
 
 //my components
+import Header from '../Header/Header.js';
 import ScaleForm from '../ScaleForm/ScaleForm.js';
 import Comments from '../Comments/Comments.js';
 import Review from '../Review/Review.js';
@@ -15,8 +16,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">Feedback!</h1>
-            <h4><i>Don't forget it!</i></h4>
+            <Header />
           </header>
           <br />          
           <Route exact path='/'
