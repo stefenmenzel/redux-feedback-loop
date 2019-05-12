@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
 
@@ -9,6 +9,7 @@ import Header from '../Header/Header.js';
 import ScaleForm from '../ScaleForm/ScaleForm.js';
 import Comments from '../Comments/Comments.js';
 import Review from '../Review/Review.js';
+import Admin from '../Admin/Admin.js';
 
 class App extends Component {
   render() {
@@ -30,8 +31,11 @@ class App extends Component {
           />
           <Route exact path='/comment'
             component={Comments}
-          />
-          <Review />
+          />          
+          <Switch>
+            <Route path="/admin" component={Admin} />s
+            <Route path='/' component={Review} />
+          </Switch>          
         </div>
       </Router>
     );
