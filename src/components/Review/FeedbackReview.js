@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
+import {Button} from '@material-ui/core';
+
+import './FeedbackReview.css';
 
 class FeedbackReview extends Component {
 
@@ -20,8 +23,8 @@ class FeedbackReview extends Component {
     //alter the button based on whether or not the form has been completed
     conditionalButton() {
         return ((this.isCompleteButton()) ?
-            <button onClick={() => this.submitFeedback()}>SUBMIT</button> :
-            <button disabled>INCOMPLETE</button>)
+            <Button className='formButton' variant='contained' color='primary' onClick={() => this.submitFeedback()}>SUBMIT</Button> :
+            <Button className='formButton' variant='contained' color='primary' disabled>INCOMPLETE</Button>)
 
     }
 

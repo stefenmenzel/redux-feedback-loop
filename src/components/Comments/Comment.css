@@ -1,0 +1,13 @@
+.formInput{
+    display: inline-block;
+    height: 40px;
+    margin: 10px;
+    width: 150px;
+}
+
+.formButton{
+    display: inline-block;
+    height: 40px;
+    width: 80px;
+    margin: auto;
+}
