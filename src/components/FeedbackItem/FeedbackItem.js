@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Button, TableCell, TableRow} from '@material-ui/core';
 
 class FeedbackItem extends Component{
 
@@ -20,13 +21,13 @@ class FeedbackItem extends Component{
 
     render(){
         return(
-            <tr>
-                <td>{this.props.feedback.feeling}</td>
-                <td>{this.props.feedback.understanding}</td>
-                <td>{this.props.feedback.support}</td>
-                <td>{this.props.feedback.comments}</td>
-                <td><button onClick={(e) => this.checkDeleteEntry(this.props.feedback.id, e)}>non-working delete button</button></td>
-            </tr>
+            <TableRow>
+                <TableCell>{this.props.feedback.feeling}</TableCell>
+                <TableCell>{this.props.feedback.understanding}</TableCell>
+                <TableCell>{this.props.feedback.support}</TableCell>
+                <TableCell>{this.props.feedback.comments}</TableCell>
+                <TableCell><Button variant="contained" color="primary" onClick={(e) => this.checkDeleteEntry(this.props.feedback.id, e)}>X</Button></TableCell>
+            </TableRow>
         )
     }
 }
