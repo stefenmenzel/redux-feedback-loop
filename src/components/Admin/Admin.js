@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import {Table, TableBody, TableHead, TableRow, TableCell} from '@material-ui/core';
 
 import FeedbackItem from '../FeedbackItem/FeedbackItem.js';
 
@@ -29,23 +30,23 @@ class Admin extends Component{
 
     render(){
         return(
-            <table>
-                <thead>
-                    <tr>
-                        <th>Feeling</th>
-                        <th>Comprehension</th>
-                        <th>Support</th>
-                        <th>Comments</th>
-                        <th>Delete</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <Table>
+                <TableHead>
+                    <TableRow>
+                        <TableCell>Feeling</TableCell>
+                        <TableCell>Comprehension</TableCell>
+                        <TableCell>Support</TableCell>
+                        <TableCell>Comments</TableCell>
+                        <TableCell>Delete</TableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
                     {/* Get info from the database and map it here. */}
                     {this.state.feedback.map((feedbackItem) => {
                         return <FeedbackItem key={feedbackItem.id} feedback={feedbackItem} getFeedback={this.getFeedbackFromServer}/>
                     })}
-                </tbody>
-            </table>
+                </TableBody>
+            </Table>
         )
     }
 }
