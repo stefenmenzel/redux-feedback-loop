@@ -1,85 +1,48 @@
-# Redux Feedback Loop
+## To-Do List
 
+This is a fully functional feedback form. It asks a user to submit information on how they feel, how well they understand subject matter, how well they feel supported, and to leave a comment. Once the user has input all necessary information, they can submit the form to a database for later perusal. This app also features an admin page that allows you to review all current feedback and allows you to delete feedback you've read.
 
->Do not clone this repository. Instead, download the zip, extract the contents, create a new GitHub repository and `git init`, `git add .`, `git commit -m "initial commit - base project"` and add your remote. Please do this before you leave for the day.
+Built With
+This project uses html/css react and redux for the front-end and node.js and express.js as a server and finally postgresql for a database.
 
-**PLEASE COMMENT YOUR CODE.**
+Getting Started
+To get this project running you'll have to:
+* fork and clone this repo. 
+* create a postgresql database using the queries in the 'Database.sql' file.
+star:
+- You'll want to run a postrgesql server while using this project
+* in the directory you cloned this repo to, you'll need to run `npm install` to get the dependencies installed for this project.
+* once you have your database created and running and you've installed all dependencies, you'll have to run your express server. You should be able to do so by running `npm run server`.
+* Once your server is running, you can run the project in a browser by running `npm run client`
 
-"And my last reminder of the day, which is my last reminder of every day, is...?" - Luke
+Prerequisites
+In order to run this project you'll need to install:
 
- For this assignment, you will be creating a feedback form modeled after Prime's system. Feedback will be collected over 4 views, and when all steps are complete, your app will save the feedback in the database. In a separate part of the page, display the current feedback values and a submit button. 
+* [node.js](https://nodejs.org/en/) 
+* [express.js](https://expressjs.com/) 
+* [react](https://reactjs.org/) 
+* [redux](https://redux.js.org/)
+* [postgres](https://www.postgresql.org/) and 
+* [pg](https://node-postgres.com/)
+* All of these can also be installed using NPM (this is my preferred method)
+* [NPM](https://www.npmjs.com/)
 
-### SETUP
+Installing
+* Download this project.
+* install prerequisite libraries listed above.
+* run `npm install` from project directory in terminal
+* run `npm run server` to start your express server
+* run `npm run client` to open this project up in a browser
 
-Create your database and tables using the provided `data.sql` file. Start the server.
+Screen Shot
+![Screenshot](ScreenShot.png)
 
-```
-npm install
-npm run server
-```
+Completed Features
+* Developed react components that display on the DOM using react's hash-routing
+* The DOM has a running tally "review" of all the current form the user is filling out.
+* Once all data is collected, user is able to submit feedback, this sends data to a database
+* User is taken to a thank you page where they can choose to submit more feedback, this will reset the form for the next user.
+* Admin page that displays all feedback data in a table.
 
-Now that the server is running, open a new terminal tab with `cmd + t` and start the react client app.
-
-```
-npm run client
-```
-
-### ADD NEW FEEDBACK
-
-> NOTE: As a baseline requirement, you must use Redux to store your data across views.
-
-Create a multi-part form that allows users to leave feedback for today. 
-There will be 4 views for the form parts.
-The parts:
-- How are you feeling today?
-![feeling](wireframes/feeling.png)
-- How well are you understanding the content?
-![understanding](wireframes/understanding.png)
-- How well are you being supported?
-![support](wireframes/supported.png)
-- Any comments you want to leave?
-![comments](wireframes/comments.png)
-
-While there is no nav bar, each part of the form should be at its own route. Clicking next should move the user to the appropriate step in the process as well as update the `Review` Component.
-
-
-## THE REVIEW COMPONENT
-
-In addition to the multi-step form, the app needs to display the results of each step clearly and at all times. HINT: This will be your current redux values displayed on the DOM. 
-
-The simplest way could be another component on the DOM which shows the results of the current survey and a Submit button.
-
-### Incomplete, Submit button is disabled:
-
-![comments](wireframes/comments.png)
-
-### Survey complete, Submit button is active:
-
-![comments](wireframes/review.png)
-
-## SUBMIT THE FEEDBACK
-
-The `Review` portion needs a submit button which will be clicked on to actually submit the completed feedback to the server. **This submit button should only be active when all of the survey steps are complete.**
-
-When the submit button is clicked, save the submission in the database. The user should see a submission success page.
-
-![understanding](wireframes/page-five.png)
-
-
-
-## STRETCH GOALS
-
-> NOTE: These stretch goals are intended to be completed in order.
-
-### ADMIN SECTION
-
-Display all of the existing feedback at the route `/admin`. The most recently added feedback should appear at the top of the list. Allow the user to delete existing feedback. Prompt the user to confirm prior to deleting the feedback from the database.
-
-![display feedback](wireframes/admin.png)
-
-### OTHER FEATURES
-
-- Update this README.md to describe the project in your own words
-- Improve the styling of the app using Material-UI theme, cards, snackbars, buttons, nav bar, and icons, and anything else you'd like.
-- Add the ability to flag an existing feedback entry for further review on the /admin view
-- Deploy your project to Heroku -- you'll need to read the special instructions for building and deploying with these apps! 
+Author
+[Stefen Menzel](https://github.com/stefenmenzel)
