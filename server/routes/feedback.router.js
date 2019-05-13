@@ -33,5 +33,20 @@ router.post('/', (req, res) => {
     });
 })
 
+router.delete('/delete/:id', (req, res) => {
+    let sqlQuery = `
+        DELETE FROM "feedback"
+        WHERE "id" = $1;
+    `
+    pool.query(sqlQuery, [req.params.id])
+    .then((result) => {
+        console.log('response from DELETE route:', result);
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('error in DELTE route:', error);
+        res.sendStatus(500);
+    });
+})
+
 
 module.exports = router;

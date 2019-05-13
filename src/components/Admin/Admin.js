@@ -43,7 +43,7 @@ class Admin extends Component{
                 <tbody>
                     {/* Get info from the database and map it here. */}
                     {this.state.feedback.map((feedbackItem) => {
-                        return <FeedbackItem key={feedbackItem.id} feedback={feedbackItem}/>
+                        return <FeedbackItem key={feedbackItem.id} feedback={feedbackItem} getFeedback={this.getFeedbackFromServer}/>
                     })}
                 </tbody>
             </table>
