@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import axios from 'axios';
-// import {withRouter} from 'react-router-dom';
 
 import FeedbackReview from '../Review/FeedbackReview.js';
 import Thanks from '../Thanks/Thanks.js';

@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Button, Input, InputBase, InputLabel, TextField} from '@material-ui/core';
+
+import './Comment.css';
 
 class Comments extends Component{
 
@@ -31,9 +34,9 @@ class Comments extends Component{
             <div>
                 <h2>Any comments you want to leave?</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <label htmlFor='comments'>Comments</label>
-                    <input onChange={this.handleChange} type="text" placeholder="Comments" />
-                    <button>NEXT</button>
+                    <InputLabel htmlFor='comments' classes>Comments?</InputLabel>
+                    <Input className='formInput' onChange={this.handleChange} id='comments' type="text" />
+                    <Button className='formButton' type='submit' variant='contained' color='primary'>NEXT</Button>
                 </form>                
             </div>
         )
