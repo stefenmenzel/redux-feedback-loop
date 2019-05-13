@@ -1,0 +1,10 @@
+img{
+    height:64px;
+    width: 64px;
+    float:left;
+    display:inline-block;
+}
+
+.finishedHeader{
+    display: inline-block
+}

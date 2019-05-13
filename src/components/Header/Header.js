@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
+import './Header.css';
+
 class Header extends Component{
 
-    conditionalHeader = () => {
-        console.log('issubmitted??????????', this.props.isSubmitted);
+    conditionalHeader = () => {        
         return (
             (this.props.isSubmitted.isSubmitted) ?
 
             <div>
-                <h1 className="App-title">Feedback!</h1>
+                <h1 className="finishedHeader">Feedback!</h1>
+                <img src="images/Circle-icons-star.png" alt="star icon"></img>
             </div> :
             
             <div>
